@@ -1,6 +1,6 @@
 # React Bhojanalya
 
-A fast and efficient food-ordering web application built using **React.js** and **Parcel** bundler. This project aims to provide a seamless and optimized experience for browsing restaurants, viewing menus, and placing orders.
+A fast and efficient food-ordering web application built using **React.js** and **Parcel** bundler deployed on Vercel. This project aims to provide a seamless and optimized experience for browsing restaurants, viewing menus, and placing orders.
 
 ## 🚀 Features
 
