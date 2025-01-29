@@ -22,6 +22,11 @@ const Header = function () {
           <li>
             <Link to="/contact">Contact Us</Link>
           </li>
+          <li>
+            <Link to="https://github.com/paramveer665/React-Bhojanalya/">
+              Git
+            </Link>
+          </li>
           <li>Cart</li>
         </ul>
       </div>
