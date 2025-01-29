@@ -11,6 +11,7 @@ const Header = function () {
   return (
     <div className="header">
       <Title />
+
       <div className="header-child">
         <ul>
           <li>
@@ -29,6 +30,7 @@ const Header = function () {
           </li>
           <li>Cart</li>
         </ul>
+        <h4>Project is in development phase - </h4>
       </div>
       {!isLoggedin ? (
         <button
