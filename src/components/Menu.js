@@ -1,33 +1,44 @@
 import { useParams } from "react-router";
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { imgUrl } from "../../constant";
+import ShimmerItem from "./ShimmerItem";
+import MenuResDesc from "./MenuResDesc";
+// import MenuItem from "./MenuItem";
+import useRestaurantMenu from "../../utils/useRestaurantMenu";
+import useMenuItem from "../../utils/useMenuItem";
+import MenuItem from "./MenuItem";
+
+// const MenuItem = lazy(() => import("./MenuItem"));
 
 const Menu = () => {
-  const [restaurant, setRestaurant] = useState({});
-  useEffect(() => {
-    getMenu();
-    console.log("kya scene");
-  }, []);
+  const { resId } = useParams();
 
-  async function getMenu() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.90950894716071&lng=77.60464466585898&restaurantId=" +
-        params.resId
-    );
-    const list = await data.json();
-    setRestaurant(list.data.cards[2].card.card.info);
-    console.log(restaurant, "hai");
-  }
-  const params = useParams();
-  console.log(params);
+  const restaurant = useRestaurantMenu(resId);
+  // console.log("phle nahi hai", useMenuItem(resId));
+  const { items, loading } = useMenuItem(resId);
+  if (loading) return <ShimmerItem key={0} />;
+
   return (
-    <>
-      <div key={restaurant.id}>
-        <h1>Retaurant id:{params.resId}</h1>
-        <h2>Restaurant Name: {restaurant.name}</h2>
-        <img className="card-img" src={imgUrl + restaurant.cloudinaryImageId} />
+    <div className="flex flex-col items-center h-full ">
+      <MenuResDesc {...restaurant} />
+      <div>
+        {items.length > 0 ? (
+          items.map((item) => <MenuItem key={item.id} {...item} />)
+        ) : (
+          <p>No menu items available.</p>
+        )}
       </div>
-    </>
+
+      {/* {itemCards.map((e) => {
+        console.log("kaam chal rha hai");
+        <MenuItem />;
+      })} */}
+
+      {/* <Suspense>
+        <MenuItem {...itemCards[0]} />;
+      </Suspense> */}
+      {/* <MenuItem {...itemCards[1]} />; */}
+    </div>
   );
 };
 

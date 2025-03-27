@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState, useRef } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
+import useOnline from "../../utils/useOnline";
 
 function filterData(restaur, searchv) {
   // console.log(searchv);
@@ -18,12 +19,10 @@ const Body = function () {
   let [searchvalue, setSearchValue] = useState("");
   const [visibleCards, setVisibleCards] = useState(5);
   let [filteredRestaurant, setFilteredRestaurant] = useState([]);
+  const isOnline = useOnline();
 
   useEffect(() => {
-    console.log("hello namaste");
     fetchApi();
-
-    console.log("hello");
   }, []);
 
   function fetchApi() {
@@ -54,14 +53,48 @@ const Body = function () {
   //   // restaurant.map((e) => console.log(e.info));
   // }
 
-  if (!restaurant.length) return <Shimmer />;
+  if (!isOnline) {
+    return <h1>Not Online, check your internet connection!</h1>;
+  }
+  if (!restaurant.length)
+    return (
+      <>
+        <div className="flex justify-center pt-3 items-center ">
+          <input
+            className="m-2 placeholder-grey-50  border  focus:outline-green-600 h-8 w-80 rounded-md outline-0 bg-amber-50  outline-blue-400 "
+            placeholder="Search"
+            value={searchvalue}
+            onChange={(e) => {
+              setSearchValue(e.target.value);
+              if (e.target.value == "") {
+                setFilteredRestaurant(restaurant);
+              }
+              const filterList = filterData(restaurant, e.target.value);
+              setFilteredRestaurant(filterList);
+              // console.log("not uef");
+            }}
+          />
+
+          <button
+            className="bg-blue-500 rounded-md text-white hover:bg-blue-700 cursor-pointer w-18 h-8"
+            onClick={function () {
+              fetchApi();
+              setSearchValue("");
+            }}
+          >
+            Reset
+          </button>
+        </div>
+        <Shimmer />
+      </>
+    );
 
   return (
-    <>
+    <div className="bg-gray-800">
       {console.log("hi this is inside")}
-      <div className="body">
+      <div className="flex justify-center pt-3 items-center ">
         <input
-          className="restaurant-search"
+          className="m-2 placeholder-grey-50  border  focus:outline-green-600 h-8 w-80 rounded-md outline-0 bg-amber-50  outline-blue-400 "
           placeholder="Search"
           value={searchvalue}
           onChange={(e) => {
@@ -75,17 +108,8 @@ const Body = function () {
           }}
         />
 
-        {/* <button
-          className="search"
-          onClick={function () {
-            const filterList = filterData(restaurant, searchvalue);
-            setFilteredRestaurant(filterList);
-          }}
-        >
-          Search
-        </button> */}
         <button
-          className="search"
+          className="bg-blue-500 rounded-md text-white hover:bg-blue-700 cursor-pointer w-18 h-8"
           onClick={function () {
             fetchApi();
             setSearchValue("");
@@ -94,14 +118,15 @@ const Body = function () {
           Reset
         </button>
       </div>
-      <div className="body-cards">
+
+      <div className="flex flex-wrap justify-center">
         {filteredRestaurant.map((e) => (
           <Link to={"/restaurant/" + e.info.id}>
             <RestaurantCard key={e.info.id} {...e.info} />
           </Link>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
