@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { MENU_ITEM } from "../constant";
+import { MENU_ITEM_URL } from "../constant";
 
 const useMenuItem = (resId) => {
-  // console.log("mila", resId);
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -12,7 +11,7 @@ const useMenuItem = (resId) => {
 
   async function getMenu() {
     try {
-      const data = await fetch(MENU_ITEM + resId);
+      const data = await fetch(MENU_ITEM_URL + resId);
       const list = await data.json();
       const menuCards = list?.data?.cards || [];
 
@@ -21,6 +20,12 @@ const useMenuItem = (resId) => {
           (innerCard) => innerCard?.card?.card?.itemCards
         )
       );
+
+      //   setItems(
+      //     list?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
+      //       ?.card
+      //   );
+      // }
       const extractedMenu =
         menuCard?.groupedCard?.cardGroupMap?.REGULAR?.cards.find(
           (innerCard) => innerCard?.card?.card?.itemCards

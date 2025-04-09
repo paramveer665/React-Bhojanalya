@@ -1,6 +1,6 @@
 const ContactUs = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-800 p-6">
+    <div className=" flex items-center justify-center bg-gray-800 p-6">
       <div className="w-full max-w-lg bg-gray-900 p-8 rounded-lg shadow-lg">
         <h2 className="text-2xl font-semibold text-yellow-400 text-center mb-6">
           Contact Us

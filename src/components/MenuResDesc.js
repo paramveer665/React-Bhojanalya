@@ -1,5 +1,6 @@
 import { imgUrl } from "../../constant";
 import { CiStar } from "react-icons/ci";
+
 const MenuResDesc = ({
   name,
   cloudinaryImageId,

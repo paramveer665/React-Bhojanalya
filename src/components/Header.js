@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router";
+import { useSelector } from "react-redux";
+import { FaCartShopping } from "react-icons/fa6";
 
 const Header = function () {
   const [isLoggedin, setIsLoggedIn] = useState(false);
+  const cartItems = useSelector((store) => store.cart.items);
 
   return (
     <nav className="w-full bg-amber-300 text-blue-600 h-16 flex shadow-2xl shadow-white justify-between items-center p-4 md:p-4 sm:p-2">
@@ -33,8 +36,10 @@ const Header = function () {
             <Link to="/contact">Contact Us</Link>
           </li>
           <li className="mr-2 md:mr-4 sm:mr-3.5 hover:scale-105 ">
-            <Link to="https://github.com/paramveer665/React-Bhojanalya/">
-              Git
+            <Link to="/cart">
+              <div className="flex items-center">
+                <FaCartShopping /> {cartItems.length} Cart
+              </div>
             </Link>
           </li>
 

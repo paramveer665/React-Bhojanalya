@@ -6,11 +6,12 @@ const RestaurantCard = function ({
   areaName,
   avgRating,
   cusisnes,
+  costForTwo,
 }) {
   // console.log(name);
   return (
     <div
-      className="m-4 bg-amber-300  shadow-amber-50 drop-shadow-2xl overflow-hidden  hover:bg-amber-200 w-72 h-80 rounded-xl hover:scale-105 transition duration-300"
+      className="m-4 bg-amber-300  shadow-amber-50 drop-shadow-2xl overflow-hidden  hover:bg-amber-200 w-72 h-90 rounded-xl hover:scale-105 transition duration-300"
       initial={{ scale: 0.8, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ duration: 0.8, delay: 0.3 }}
@@ -28,6 +29,7 @@ const RestaurantCard = function ({
         </div>
         <div className="font-normal">{areaName}</div>
         <div className="font-normal text-slate-700">{avgRating} Stars</div>
+        <div className="font-normal text-slate-700">{(" ", costForTwo)} </div>
         {/* <h3>Cuisines: {cuisines + ", "}</h3> */}
       </div>
     </div>

@@ -28,16 +28,6 @@ const Menu = () => {
           <p>No menu items available.</p>
         )}
       </div>
-
-      {/* {itemCards.map((e) => {
-        console.log("kaam chal rha hai");
-        <MenuItem />;
-      })} */}
-
-      {/* <Suspense>
-        <MenuItem {...itemCards[0]} />;
-      </Suspense> */}
-      {/* <MenuItem {...itemCards[1]} />; */}
     </div>
   );
 };

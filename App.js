@@ -17,6 +17,9 @@ import Profile from "./src/components/Profile";
 import ProfileClass from "./src/components/ProfileClass";
 import useOnline from "./utils/useOnline";
 import Offline from "./src/components/Offline";
+import Cart from "./src/components/Cart";
+import { Provider } from "react-redux";
+import store from "./utils/store";
 
 const AppLayout = function () {
   const isOnline = useOnline();
@@ -29,10 +32,12 @@ const AppLayout = function () {
       </>
     );
   return (
-    <div className="bg-gray-800 h-full  ">
-      <Header />
-      <Outlet />
-      <Footer />
+    <div className="bg-gray-800 min-h-screen  ">
+      <Provider store={store}>
+        <Header />
+        <Outlet />
+        <Footer />
+      </Provider>
     </div>
   );
 };
@@ -54,6 +59,11 @@ const appRouter = Router([
       },
       { path: "/contact", element: <Contact /> },
       { path: "/restaurant/:resId", element: <Menu /> },
+      ,
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
     ],
   },
 ]);

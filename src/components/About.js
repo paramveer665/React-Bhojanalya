@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const AboutUs = () => {
   return (
-    <div className="min-h-screen bg-gray-800 text-white flex flex-col items-center justify-center px-6 py-12">
+    <div className=" bg-gray-800 text-white flex flex-col items-center justify-center px-6 py-12">
       {/* Heading */}
       <motion.h1
         className="text-4xl font-bold text-yellow-400 mb-6"
