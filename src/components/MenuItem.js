@@ -1,6 +1,6 @@
 import { MENU_ITEM_IMAGE } from "../../constant";
 import { useDispatch } from "react-redux";
-import { addItem } from "../../utils/CartSlice";
+import { addItem } from "../../utils/cartSlice";
 const MenuItem = ({ card }) => {
   //   console.log(card);
   const dispatch = useDispatch();
