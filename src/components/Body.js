@@ -2,7 +2,6 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState, useRef } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
-import useOnline from "../../utils/useOnline";
 import useRestaurants from "../../utils/useRestaurants";
 
 function filterData(restaur, searchv) {
