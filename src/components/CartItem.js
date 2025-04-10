@@ -10,7 +10,7 @@ const CartItem = ({
 }) => {
   console.log("ye kiska naam hai", name);
   return (
-    <div className="sm:w-[500px] sm:gap-[215px] gap-[232px] md:w-[650px] lg:w-[800px] bg-amber-300  sm:rounded-b-lg sm:rounded-none  flex justify-between p-4  border-t-2">
+    <div className="sm:w-[500px] sm:gap-[215px] gap-[232px] md:w-[650px] lg:w-[800px] bg-amber-300  sm:rounded-b-lg sm:rounded-none  flex justify-between p-4  ">
       <div className="items-center">
         <div>{name}</div>
 
