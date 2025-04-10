@@ -1,4 +1,4 @@
-import { REST_URL, proxyUrl } from "../constant";
+import { REST_URL, restPUrl } from "../constant";
 import { useState, useEffect } from "react";
 
 const useRestaurants = () => {
@@ -11,7 +11,7 @@ const useRestaurants = () => {
 
   async function getMenu() {
     try {
-      const data = await fetch(proxyUrl + REST_URL);
+      const data = await fetch(restPUrl);
       const list = await data.json();
       const restCards = list?.data?.cards || [];
 

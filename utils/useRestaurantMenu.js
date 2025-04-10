@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FETCH_MENU_URL, proxyUrl } from "../constant";
+import { FETCH_MENU_URL, menuPUrl } from "../constant";
 
 const useRestaurantMenu = (resId) => {
   const [restaurant, setRestaurant] = useState(null);
@@ -9,7 +9,7 @@ const useRestaurantMenu = (resId) => {
   }, []);
 
   async function getMenu() {
-    const data = await fetch(proxyUrl + FETCH_MENU_URL + resId);
+    const data = await fetch(menuPUrl + resId);
     const list = await data.json();
 
     setRestaurant(list?.data?.cards[2]?.card?.card?.info);

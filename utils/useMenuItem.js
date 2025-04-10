@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MENU_ITEM_URL, proxyUrl } from "../constant";
+import { MENU_ITEM_URL, menuItemPUrl } from "../constant";
 
 const useMenuItem = (resId) => {
   const [items, setItems] = useState([]);
@@ -11,7 +11,7 @@ const useMenuItem = (resId) => {
 
   async function getMenu() {
     try {
-      const data = await fetch(proxyUrl + MENU_ITEM_URL + resId);
+      const data = await fetch(menuItemPUrl + resId);
       const list = await data.json();
       const menuCards = list?.data?.cards || [];
 
