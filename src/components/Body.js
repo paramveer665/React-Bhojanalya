@@ -37,19 +37,12 @@ const Body = function () {
           value={searchvalue}
           onChange={(e) => {
             setSearchValue(e.target.value);
-            // if (e.target.value == "") {
-            //   setFilteredRestaurant(restaurant);
-            // }
-            // const filterList = filterData(restaurant, e.target.value);
-            // setFilteredRestaurant(filterList);
-            // console.log("not uef");
           }}
         />
 
         <button
           className="bg-blue-500 rounded-md text-white hover:bg-blue-700 cursor-pointer w-18 h-8"
-          onClick={function () {
-            fetchApi();
+          onClick={() => {
             setSearchValue("");
           }}
         >
