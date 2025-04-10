@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-6">
+    <footer className="bg-gray-900 text-white py-3 mt-6">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-xl font-semibold">React Bhojanalya</h2>
         <p className="text-sm text-gray-400 mt-1">
@@ -33,7 +33,7 @@ const Footer = () => {
           </a>
         </div>
 
-        <p className="text-gray-500 text-sm mt-4">
+        <p className="text-gray-500 text-sm mt-2">
           © {new Date().getFullYear()} Bhojanalya. All rights reserved.
         </p>
       </div>

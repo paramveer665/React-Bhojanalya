@@ -16,7 +16,12 @@ const Menu = () => {
   const restaurant = useRestaurantMenu(resId);
   // console.log("phle nahi hai", useMenuItem(resId));
   const { items, loading } = useMenuItem(resId);
-  if (loading) return <ShimmerItem key={0} />;
+  if (loading)
+    return (
+      <div className="flex justify-center items-center">
+        <ShimmerItem key={0} />
+      </div>
+    );
 
   return (
     <div className="flex flex-col items-center h-full ">

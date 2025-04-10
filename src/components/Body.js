@@ -2,7 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState, useRef } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
-import useOnline from "../../utils/useOnline";
+
 import useRestaurants from "../../utils/useRestaurants";
 
 function filterData(restaur, searchv) {
@@ -14,7 +14,6 @@ function filterData(restaur, searchv) {
 }
 
 const Body = function () {
-  // let [restaurant, setRestaurant] = useState([]);
   let [searchvalue, setSearchValue] = useState("");
   const { restaurant, isLoading } = useRestaurants();
   let [filteredRestaurant, setFilteredRestaurant] = useState([]);
@@ -23,44 +22,10 @@ const Body = function () {
     if (!searchvalue) {
       setFilteredRestaurant(restaurant);
     } else {
-      const filtered = filterData(restaur, searchv);
+      const filtered = filterData(restaurant, searchvalue);
       setFilteredRestaurant(filtered);
     }
   }, [restaurant, searchvalue]);
-
-  // function fetchApi() {
-  //   fetch(
-  //     "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.90950894716071&lng=77.60464466585898&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-  //   )
-  //     .then((response) => response.json())
-  //     // .then((content) => console.log("zarurai kaam", content))
-  //     .then((data) => {
-  //       setRestaurant(
-  //         data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-  //           ?.restaurants
-  //       );
-  //       setFilteredRestaurant(
-  //         data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-  //           ?.restaurants
-  //       );
-  //       // console.log(filteredRestaurant, "ye filtered hai");
-  //     })
-  //     .catch((err) => {
-  //       console.log("Error", err);
-  //     });
-  // }
-
-  // async function fetchApi() {
-  //   const data = await fetch(
-  //     "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.90950894716071&lng=77.60464466585898&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-  //   );
-  //   const json = await data.json();
-  //   setRestaurant(
-  //     json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
-  //   );
-  //   console.log(restaurant);
-  //   // restaurant.map((e) => console.log(e.info));
-  // }
 
   if (isLoading) return <Shimmer key={0} />;
 
@@ -73,11 +38,11 @@ const Body = function () {
           value={searchvalue}
           onChange={(e) => {
             setSearchValue(e.target.value);
-            if (e.target.value == "") {
-              setFilteredRestaurant(restaurant);
-            }
-            const filterList = filterData(restaurant, e.target.value);
-            setFilteredRestaurant(filterList);
+            // if (e.target.value == "") {
+            //   setFilteredRestaurant(restaurant);
+            // }
+            // const filterList = filterData(restaurant, e.target.value);
+            // setFilteredRestaurant(filterList);
             // console.log("not uef");
           }}
         />
@@ -94,7 +59,7 @@ const Body = function () {
       </div>
 
       <div className="flex flex-wrap justify-center">
-        {restaurant.map((e) => (
+        {filteredRestaurant.map((e) => (
           <Link to={"/restaurant/" + e.info.id}>
             <RestaurantCard key={e.info.id} {...e.info} />
           </Link>
