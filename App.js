@@ -25,11 +25,11 @@ const AppLayout = function () {
   const isOnline = useOnline();
   if (!isOnline)
     return (
-      <>
+      <Provider store={store}>
         <Header />
         <Offline />
         <Footer />
-      </>
+      </Provider>
     );
   return (
     <div className="bg-gray-800 min-h-screen  ">

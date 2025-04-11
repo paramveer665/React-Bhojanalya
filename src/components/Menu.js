@@ -18,9 +18,9 @@ const Menu = () => {
     );
 
   return (
-    <div className="flex flex-col items-center h-full ">
+    <div className="flex flex-col items-center justify-center h-full w-screen ">
       <MenuResDesc {...restaurant} />
-      <div>
+      <div className="flex flex-col mx-4 ">
         {items.length > 0 ? (
           items.map((item) => <MenuItem key={item.card.info.id} {...item} />)
         ) : (
