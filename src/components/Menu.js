@@ -12,15 +12,15 @@ const Menu = () => {
   const { items, loading } = useMenuItem(resId);
   if (loading)
     return (
-      <div className="flex justify-center items-center">
+      <div className="flex flex-col items-center justify-center h-full w-screen">
         <ShimmerItem key={0} />
       </div>
     );
 
   return (
-    <div className="flex flex-col items-center justify-center h-full w-screen ">
+    <div className="flex flex-col items-center justify-center h-full  ">
       <MenuResDesc {...restaurant} />
-      <div className="flex flex-col mx-4 ">
+      <div className="flex flex-col ">
         {items.length > 0 ? (
           items.map((item) => <MenuItem key={item.card.info.id} {...item} />)
         ) : (

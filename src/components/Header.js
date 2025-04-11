@@ -75,7 +75,7 @@ const Header = function () {
         )}
       </div>
       <button
-        className="font-bold text-3xl md:hidden cursor-pointer text-blue-600 hover:text-blue-400"
+        className="font-bold text-3xl md:hidden mr-4 cursor-pointer text-blue-600 hover:text-blue-400"
         onClick={() => {
           mobiledNav();
         }}
