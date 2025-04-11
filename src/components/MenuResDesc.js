@@ -7,7 +7,6 @@ const MenuResDesc = ({
   city,
   areaName,
   avgRating,
-  cuisines,
   costForTwoMessage,
   totalRatings,
 }) => {
@@ -28,7 +27,6 @@ const MenuResDesc = ({
         <div className="capitalize font-normal">
           {areaName}, {city}
         </div>
-        {/* <div className="font-light">{cuisines.join(", ")}</div> */}
         <div className="font-light">{costForTwoMessage}</div>
       </div>
     </div>

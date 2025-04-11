@@ -2,7 +2,7 @@ import { MENU_ITEM_IMAGE } from "../../constant";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../utils/cartSlice";
 const MenuItem = ({ card }) => {
-  //   console.log(card);
+  // console.log(card);
   const dispatch = useDispatch();
   const { name, category, description, price, defaultPrice, imageId } =
     card.info;
@@ -12,9 +12,11 @@ const MenuItem = ({ card }) => {
   };
 
   return (
-    <div className=" sm:w-[500px] sm:gap-[215px] gap-[232px] md:w-[650px] lg:w-[800px] bg-amber-300  sm:rounded-b-lg sm:rounded-none  flex justify-between p-4  border-t-2">
-      <div className="items-center">
-        <div>{name}</div>
+    <div className=" sm:w-[500px] sm:gap-[215px]   rounded-lg  md:w-[650px] lg:w-[800px] w-[428px] bg-amber-300  sm:rounded-b-lg sm:rounded-none  flex justify-between p-4  border-t-2">
+      <div className="items-center ">
+        <div className=" overflow-hidden text-ellipsis whitespace-break-spaces">
+          {name}
+        </div>
         <div>{category}</div>
         {/* <div>{description}</div> */}
         {price ? (
@@ -25,7 +27,7 @@ const MenuItem = ({ card }) => {
       </div>
       <div className="flex flex-col items-end">
         <img
-          className="h-32 rounded-lg overflow-hidden"
+          className="h-32 w-full rounded-lg overflow-hidden"
           src={MENU_ITEM_IMAGE + imageId}
         ></img>
         <button

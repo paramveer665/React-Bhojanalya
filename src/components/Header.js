@@ -38,7 +38,7 @@ const Header = function () {
           <li className="mr-2 md:mr-4 sm:mr-3.5 hover:scale-105 ">
             <Link to="/cart">
               <div className="flex items-center">
-                <FaCartShopping /> {cartItems.length} Cart
+                <FaCartShopping /> {(" ", cartItems.length)} Cart
               </div>
             </Link>
           </li>
