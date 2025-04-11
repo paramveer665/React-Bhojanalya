@@ -26,6 +26,17 @@ const ShimmerItem = () => {
           <div className="sm:h-10 sm:w-24 w-25 h-8 bg-blue-500 rounded-lg mt-4"></div>
         </div>
       </div>
+      <div className="flex pt-10  justify-between sm:w-[500px] sm:gap-[215px]  md:w-[650px] lg:w-[800px] bg-amber-300 rounded-lg sm:rounded-b-lg sm:rounded-none mx-4 p-4 mb-1 animate-pulse">
+        <div>
+          <div className="sm:h-6 sm:w-32 w-32 h-5 bg-gray-400 rounded-md mb-2"></div>
+          <div className="sm:h-5 sm:w-24 w-20 h-5 bg-gray-400 rounded-md mb-2"></div>
+          <div className="sm:h-4 sm:w-64 w-14 h-5 bg-gray-400 rounded-md mb-2"></div>
+        </div>
+        <div className="flex flex-col items-end m-2">
+          <div className="sm:h-30 sm:w-30 w-28 h-32 bg-gray-400 rounded-lg "></div>
+          <div className="sm:h-10 sm:w-24 w-25 h-8 bg-blue-500 rounded-lg mt-4"></div>
+        </div>
+      </div>
     </div>
   );
 };
