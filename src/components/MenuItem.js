@@ -27,6 +27,7 @@ const MenuItem = ({ card }) => {
       </div>
       <div className="flex flex-col items-end">
         <img
+          alt={name}
           className="h-32 w-full rounded-lg overflow-hidden"
           src={MENU_ITEM_IMAGE + imageId}
         ></img>

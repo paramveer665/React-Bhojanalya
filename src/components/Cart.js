@@ -1,6 +1,7 @@
 import CartItem from "./CartItem";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart } from "../../utils/cartSlice";
+import EmptyCart from "./EmptyCart";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -8,25 +9,22 @@ const Cart = () => {
     dispatch(clearCart());
   };
   const cartItems = useSelector((store) => store.cart.items);
-  if (cartItems.length == 0)
-    return (
-      <div className=" h-20  bg-amber-200 text-amber-700 font-black flex flex-col items-center justify-center">
-        Cart is empty, add
-      </div>
-    );
+  if (cartItems.length == 0) return <EmptyCart />;
 
   return (
-    <div>
-      <div className="  text-black flex flex-col items-center justify-center m-5">
+    <div className="sm:w-full   flex justify-center">
+      <div className="   flex flex-col items-center justify-center bg-amber-400 rounded-lg p-2 m-5">
         <button
-          className="bg-blue-600 rounded-xl  p-2  m-4"
+          className="bg-blue-600 sm:w-48 sm:font-bold sm:text-lg text-white font-semibold rounded-lg  p-2  m-4"
           onClick={() => handleClearCart()}
         >
           Clear Cart
         </button>
-        {cartItems.map((items) => (
-          <CartItem {...items} />
-        ))}
+        <div className="p-2 bg-amber-200 rounded-lg">
+          {cartItems.map((items) => (
+            <CartItem {...items} />
+          ))}
+        </div>
       </div>
     </div>
   );

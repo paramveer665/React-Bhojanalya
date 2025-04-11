@@ -7,24 +7,29 @@ const Header = function () {
   const [isLoggedin, setIsLoggedIn] = useState(false);
   const cartItems = useSelector((store) => store.cart.items);
 
+  const mobiledNav = () => {};
+
   return (
-    <nav className="w-full bg-amber-300 text-blue-600 h-16 flex shadow-2xl shadow-white justify-between items-center p-4 md:p-4 sm:p-2">
-      <a href="/" className=" flex items-center">
+    <nav className="w-full bg-amber-300  h-16 flex shadow-2xl shadow-white justify-between items-center p-4 md:p-4 sm:p-2">
+      <a
+        href="/"
+        className=" flex items-center hover:opacity-90 hover:text-slate-600"
+      >
         <div className="">
           <img
-            className="h-12 md:h-[60px] drop-shadow-2xl "
+            className="h-12 md:h-[60px] drop-shadow-2xl  "
             alt="logo"
             src="https://i.imgur.com/KwkSpvy.png"
           />
         </div>
         <div>
-          <div className="text-xl  sm:text-[25px] ml-2 sm:ml-2 font-semibold">
+          <div className="text-xl  sm:text-[25px] ml-2 sm:ml-2  font-bold">
             React Bhojanalya
           </div>
         </div>
       </a>
 
-      <div className=" hidden md:block font-medium">
+      <div className=" hidden md:block font-medium text-blue-600">
         <ul className="flex sm:text-[17px] md:text-m ">
           <li className="mr-2 md:mr-4 sm:mr-3.5 hover:scale-105   ">
             <Link to="/">Home</Link>
@@ -46,7 +51,7 @@ const Header = function () {
           <li className=""></li>
         </ul>
       </div>
-      <div>
+      <div className="hidden md:block">
         {" "}
         {isLoggedin ? <Link to="/about/profile">Profile</Link> : ""}
         {!isLoggedin ? (
@@ -69,6 +74,14 @@ const Header = function () {
           </button>
         )}
       </div>
+      <button
+        className="font-bold text-3xl md:hidden cursor-pointer text-blue-600 hover:text-blue-400"
+        onClick={() => {
+          mobiledNav();
+        }}
+      >
+        &#8801;
+      </button>
     </nav>
   );
 };

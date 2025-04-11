@@ -18,6 +18,7 @@ const RestaurantCard = function ({
     >
       <div className=" ">
         <img
+          alt={name}
           className=" inset-0 w-full h-56 object-cover"
           src={imgUrl + cloudinaryImageId}
         />
