@@ -32,8 +32,8 @@ const Body = function () {
     <div className="bg-gray-800">
       <div className="flex justify-center pt-3 items-center ">
         <input
-          className="m-2 placeholder-grey-50  border  focus:outline-green-600 h-8 w-80 rounded-md outline-0 bg-amber-50  outline-blue-400 "
-          placeholder="Search"
+          className="sm:m-2 my-2 ml-2 placeholder-grey-50    focus:outline-green-600 sm:h-12 sm:w-80  sm:rounded-md  rounded-l-lg w-52 h-12  outline-0 bg-amber-50  outline-blue-400 "
+          placeholder="Search Restaurant "
           value={searchvalue}
           onChange={(e) => {
             setSearchValue(e.target.value);
@@ -41,7 +41,7 @@ const Body = function () {
         />
 
         <button
-          className="bg-blue-500 rounded-md text-white hover:bg-blue-700 cursor-pointer w-18 h-8"
+          className="bg-blue-500 sm:rounded-md rounded-r-lg text-white hover:bg-blue-700 cursor-pointer w-18 h-12 "
           onClick={() => {
             setSearchValue("");
           }}
