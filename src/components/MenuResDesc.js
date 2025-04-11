@@ -16,7 +16,7 @@ const MenuResDesc = ({
         className="h-56 sm:h-64  sm:rounded-l-lg sm:rounded-bl-none sm:rounded-t-lg rounded-l-lg  object-cover overflow-hidden"
         src={imgUrl + cloudinaryImageId}
       ></img>
-      <div className="pr-4 pt-2 pl-4 w-48">
+      <div className="pr-4 pt-2 pl-4 w-48 sm:w-full">
         <div className="md:flex lg:flex sm:flex justify-between items-center">
           <div className="font-medium text-lg  overflow-hidden text-ellipsis whitespace-break-spaces">
             {name}
