@@ -2,6 +2,7 @@ import CartItem from "./CartItem";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart } from "../../utils/cartSlice";
 import EmptyCart from "./EmptyCart";
+import CartAmount from "./CartAmount";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -24,6 +25,9 @@ const Cart = () => {
           {cartItems.map((items) => (
             <CartItem {...items} />
           ))}
+        </div>
+        <div className="w-full">
+          <CartAmount />
         </div>
       </div>
     </div>

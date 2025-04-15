@@ -74,14 +74,23 @@ const Header = function () {
           </button>
         )}
       </div>
-      <button
-        className="font-bold text-3xl md:hidden mr-4 cursor-pointer text-blue-600 hover:text-blue-400"
-        onClick={() => {
-          mobiledNav();
-        }}
-      >
-        &#8801;
-      </button>
+      <div className="md:hidden flex items-center text-lg h-11 bg-amber-200 rounded-lg shadow-2xl ">
+        {" "}
+        <Link to="/cart">
+          <div className="flex items-center pt-2 m-2 text-blue-600 shadow-2xl hover:text-blue-400 ">
+            <FaCartShopping /> {(" ", cartItems.length)}
+          </div>
+        </Link>
+        <div className="h-[44px] border-l-2 opacity-35"></div>
+        <button
+          className="font-bold text-3xl  mx-1 mr-3 cursor-pointer text-blue-600 hover:text-blue-400  border-slate-700  "
+          onClick={() => {
+            mobiledNav();
+          }}
+        >
+          &#8801;
+        </button>
+      </div>
     </nav>
   );
 };

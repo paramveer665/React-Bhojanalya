@@ -1,3 +1,4 @@
+import { CiStar } from "react-icons/ci";
 import { imgUrl } from "../../constant";
 
 const RestaurantCard = function ({
@@ -29,7 +30,9 @@ const RestaurantCard = function ({
           {name}
         </div>
         <div className="font-normal">{areaName}</div>
-        <div className="font-normal text-slate-700">{avgRating} Stars</div>
+        <div className="font-normal text-slate-700 flex ">
+          <CiStar className="size-6 " />({avgRating}) Stars
+        </div>
         <div className="font-normal text-slate-700">{(" ", costForTwo)} </div>
         {/* <h3>Cuisines: {cuisines + ", "}</h3> */}
       </div>
