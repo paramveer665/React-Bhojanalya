@@ -16,7 +16,7 @@ const Cart = () => {
     <div className="sm:w-full   flex justify-center">
       <div className="   flex flex-col items-center justify-center bg-amber-400 rounded-lg p-2 m-5">
         <button
-          className="bg-blue-600 sm:w-48 sm:font-bold sm:text-lg text-white font-semibold rounded-lg  p-2  m-4"
+          className="bg-blue-600 sm:w-48 sm:font-bold sm:text-lg text-white font-semibold hover:bg-blue-800 cursor-pointer rounded-lg  p-2  m-4"
           onClick={() => handleClearCart()}
         >
           Clear Cart

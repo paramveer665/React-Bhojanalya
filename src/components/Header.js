@@ -6,6 +6,8 @@ import { FaCartShopping } from "react-icons/fa6";
 const Header = function () {
   const [isLoggedin, setIsLoggedIn] = useState(false);
   const cartItems = useSelector((store) => store.cart.items);
+  const cartSize = cartItems.reduce((total, item) => total + item.quantity, 0);
+  console.log(cartSize);
 
   const mobiledNav = () => {};
 
@@ -43,7 +45,7 @@ const Header = function () {
           <li className="mr-2 md:mr-4 sm:mr-3.5 hover:scale-105 ">
             <Link to="/cart">
               <div className="flex items-center">
-                <FaCartShopping /> {(" ", cartItems.length)} Cart
+                <FaCartShopping /> {(" ", cartSize)} Cart
               </div>
             </Link>
           </li>
@@ -78,7 +80,7 @@ const Header = function () {
         {" "}
         <Link to="/cart">
           <div className="flex items-center pt-2 m-2 text-blue-600 shadow-2xl hover:text-blue-400 ">
-            <FaCartShopping /> {(" ", cartItems.length)}
+            <FaCartShopping /> {(" ", cartSize)}
           </div>
         </Link>
         <div className="h-[44px] border-l-2 opacity-35"></div>
