@@ -44,13 +44,13 @@ const MenuItem = ({ card }) => {
         ></img>
         {!itemInCart ? (
           <button
-            className="bg-blue-600 mt-2 w-28  text-white p-2 cursor-pointer rounded-lg hover:bg-blue-800 transition-opacity"
+            className="bg-blue-600 mt-2 w-28  text-white p-2 cursor-pointer rounded-lg hover:bg-blue-800 duration-500"
             onClick={() => handleAddItem(card.info)}
           >
             Add to cart
           </button>
         ) : (
-          <div className="flex items-center mt-2 ">
+          <div className="flex items-center mt-2 duration-1000">
             {" "}
             <button
               className="bg-blue-600 text-amber-50 shadow-amber-950 shadow-2xl w-9  h-10   cursor-pointer rounded-l-lg hover:bg-blue-800 "

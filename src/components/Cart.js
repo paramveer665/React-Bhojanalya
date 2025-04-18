@@ -10,7 +10,7 @@ const Cart = () => {
     dispatch(clearCart());
   };
   const cartItems = useSelector((store) => store.cart.items);
-  if (cartItems.length == 0) return <EmptyCart />;
+  if (cartItems.length == 0) return <EmptyCart className="duration-200" />;
 
   return (
     <div className="sm:w-full   flex justify-center">

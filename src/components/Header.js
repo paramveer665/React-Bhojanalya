@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router";
 import { useSelector } from "react-redux";
-import { FaCartShopping } from "react-icons/fa6";
+import { FaCartShopping, FaCross, FaGit, FaGithub } from "react-icons/fa6";
+import { FaCut } from "react-icons/fa";
+import { RxCross2 } from "react-icons/rx";
 
 const Header = function () {
   const [isLoggedin, setIsLoggedIn] = useState(false);
@@ -9,29 +11,30 @@ const Header = function () {
   const cartSize = cartItems.reduce((total, item) => total + item.quantity, 0);
   console.log(cartSize);
 
-  const mobiledNav = () => {};
+  const [isOpen, setIsOpen] = useState(false);
+  console.log(isOpen);
 
   return (
-    <nav className="w-full bg-amber-300  h-16 flex shadow-2xl shadow-white justify-between items-center p-4 md:p-4 sm:p-2">
+    <nav className="w-full bg-amber-300  h-16 flex shadow-2xl shadow-white justify-between items-center px-12 md:px-12 sm:px-28 lg:px-36">
       <a
         href="/"
         className=" flex items-center hover:opacity-90 hover:text-slate-600"
       >
         <div className="">
           <img
-            className="h-12 md:h-[60px] drop-shadow-2xl  "
+            className="h-12 md:h-[55px] drop-shadow-2xl  "
             alt="logo"
             src="https://i.imgur.com/KwkSpvy.png"
           />
         </div>
         <div>
-          <div className="text-xl  sm:text-[25px] ml-2 sm:ml-2  font-bold">
+          <div className="text-xl  sm:text-[20px] md:text-[18px] ml-2 sm:ml-2  font-bold">
             React Bhojanalya
           </div>
         </div>
       </a>
 
-      <div className=" hidden md:block font-medium text-blue-600">
+      <div className=" hidden md:block font-semibold  text-blue-600">
         <ul className="flex sm:text-[17px] md:text-m ">
           <li className="mr-2 md:mr-4 sm:mr-3.5 hover:scale-105   ">
             <Link to="/">Home</Link>
@@ -85,13 +88,71 @@ const Header = function () {
         </Link>
         <div className="h-[44px] border-l-2 opacity-35"></div>
         <button
-          className="font-bold text-3xl  mx-1 mr-3 cursor-pointer text-blue-600 hover:text-blue-400  border-slate-700  "
+          className=" group space-y-1 text-2xl cursor-pointer text-blue-600  p-2"
           onClick={() => {
-            mobiledNav();
+            setIsOpen(!isOpen);
           }}
         >
           &#8801;
         </button>
+        {isOpen && (
+          <ul className=" w-screen absolute z-50 -top-0 pb-10 group-focus:top-0 right-0 flex flex-col justify-end duration-300 space-y-3  bg-gray-400 text-neutral-50 shadow-3xl  ">
+            <button
+              className="cursor-pointer hover:text-amber-400 flex justify-end m-2 "
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
+            >
+              <RxCross2 className="size-8 flex hover:shadow-2xl shadow-amber-100 " />
+            </button>
+            <button
+              className=" hover:bg-gray-300 flex justify-center py-2 hover:text-amber-600 cursor-pointer"
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
+            >
+              <Link to="/">Home</Link>
+            </button>
+            <button
+              className=" hover:bg-gray-300 flex justify-center py-2 hover:text-amber-600 cursor-pointer"
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
+            >
+              <Link to="/about">About Us</Link>
+            </button>
+            <button
+              className=" hover:bg-gray-300  flex justify-center py-2 hover:text-amber-600 cursor-pointer"
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
+            >
+              <Link to="/contact">Contact Us</Link>
+            </button>
+            <button
+              className=" hover:bg-gray-300  flex justify-center py-2 hover:text-amber-600 cursor-pointer"
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
+            >
+              <Link to="/cart">
+                <div className="">Cart</div>
+              </Link>
+            </button>
+            <button
+              className=" hover:bg-gray-300 flex  justify-center py-2 hover:text-amber-600 cursor-pointer"
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
+            >
+              <Link to="https://github.com/paramveer665/React-Bhojanalya">
+                <div className="flex items-center">
+                  <FaGithub /> Git
+                </div>
+              </Link>
+            </button>
+          </ul>
+        )}
       </div>
     </nav>
   );

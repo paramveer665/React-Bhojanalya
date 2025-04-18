@@ -34,8 +34,10 @@ const AppLayout = function () {
   return (
     <div className="bg-gray-800 min-h-screen  ">
       <Provider store={store}>
-        <Header />
-        <Outlet />
+        <div className="">
+          <Header className="" />
+          <Outlet className="" />
+        </div>
         <Footer />
       </Provider>
     </div>

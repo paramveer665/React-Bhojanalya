@@ -32,7 +32,7 @@ const Body = function () {
     <div className="bg-gray-800">
       <div className="flex justify-center pt-3 items-center ">
         <input
-          className="sm:m-2 my-2 ml-2 placeholder-grey-50    focus:outline-green-600 sm:h-12 sm:w-80  sm:rounded-md  rounded-l-lg w-52 h-12  outline-0 bg-amber-50  outline-blue-400 "
+          className="sm:m-2 my-2 ml-2 placeholder-grey-50 pl-4 focus:outline-2    focus:outline-amber-300  sm:h-12 sm:w-80  sm:rounded-md  rounded-l-lg w-52 h-12  outline-0 bg-amber-50  outline-blue-400 "
           placeholder="Search Restaurant "
           value={searchvalue}
           onChange={(e) => {
